@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>LiveModel 1</title>
+		<script type="text/javascript" src="http://localhost/panther/javascript/jquery.min.js"></script>
+		<script type="text/javascript" src="http://localhost/panther/javascript/ui/tmpl.js"></script>
+		<script type="text/javascript" src="http://localhost/panther/javascript/ui/sync.js"></script>
+		<script type="text/javascript" src="http://localhost:3000/nowjs/now.js"></script>
+		<script type="text/javascript" src="http://localhost/knockoutJSlive/knockoutlive.js"></script>
+	</head>
+	<script type="text/javascript">
+		liveModel.firstName = ko.observable();
+		
+		$(document).ready(function() {
+			ko.applyBindings(liveModel);
+		});
+	</script>
+	<body>
+		
+		First Name: <input type="text" data-bind="value: firstName"> <button data-bind="click: save">Save</button>
+		
+		<br /><br />
+		
+		<span data-bind="text: firstName"></span>
+	</body>
+</html>
