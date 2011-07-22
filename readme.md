@@ -10,14 +10,15 @@ User B - Receives changes to Report X in realtime without refreshing the browser
 
 Example 1
 
-<tt>
+{
 $.post("http://url.com/save", function(ret) {
 	
 	if(ret.success) {
 		ko.save(viewModel);
 	}
 	
-}, 'json');</tt>
+}, 'json');
+}
 
 For other examples, look in the examples folder.
 
