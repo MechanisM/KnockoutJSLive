@@ -8,20 +8,6 @@ User B - Is looking at Repot X
 User A - Saves Report X, and upon success, the ko.save(viewModel); function runs
 User B - Receives changes to Report X in realtime without refreshing the browser
 
-Example 1
-
-{
-$.post("http://url.com/save", function(ret) {
-	
-	if(ret.success) {
-		ko.save(viewModel);
-	}
-	
-}, 'json');
-}
-
-For other examples, look in the examples folder.
-
 TODO:
 
 - Make KnockoutJSlive detect the variable used for the viewModel, at the moment it expects it to be "var viewModel = {};"
