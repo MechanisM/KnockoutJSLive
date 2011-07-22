@@ -1,5 +1,9 @@
 if(typeof now != "undefined") {
 	now.updateViewModel = function(model) {
+		if(typeof viewModel == "undefined") {
+			console.log("var viewModel is not defined, please define your view model under 'var viewModel' ");
+			return;
+		}
 		for(i in model) {
 			if(typeof viewModel[i] == "function") {
 				var f = viewModel[i];
@@ -9,14 +13,11 @@ if(typeof now != "undefined") {
 			}	
 		}
 	};
-
 	ko.save = function(model) {
 		var model = ko.toJS(model);
-		
 		if(typeof now.modelName != 'undefined') {
 			model._modelName = now.modelName;
 		}
-		
 		now.saveViewModel(model);
 	};
 } else {
