@@ -1,19 +1,22 @@
-now.updateViewModel = function(model) {
-	for(i in model) {
-		if(typeof liveModel[i] == "function") {
-			var f = liveModel[i];
-			f(model[i]);
-		} else if(typeof liveModel[i] != "undefined") {
-			liveModel[i] = model[i];
-		}	
+if(typeof now != "undefined") {
+	now.updateViewModel = function(model) {
+		for(i in model) {
+			if(typeof viewModel[i] == "function") {
+				var f = viewModel[i];
+				f(model[i]);
+			} else if(typeof viewModel[i] != "undefined") {
+				viewModel[i] = model[i];
+			}	
+		}
 	}
-}
 
-var liveModel = {
-	
-	save: function() {
-		var model = ko.toJS(liveModel);
+	ko.save = function(model) {
+		var model = ko.toJS(model);
 		now.saveViewModel(model);
 	}
-	
+} else {
+	console.log("Could not find the NowJS scope, please make sure knockoutserver.js is running");
 }
+
+
+
