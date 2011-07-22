@@ -19,3 +19,12 @@ Staff Page - viewModel.firstName
 Why?
 
 Because both clients are connected to the NowJS server, with viewModels that share a property. Hopefully a fix is coming in v0.2.
+
+Requirements
+
+- NodeJS v0.4.1 or greater (http://nodejs.org)
+ - Express (http://express.com)
+  - NowjS (http://nowjs.com)
+- jQuery (http://jquery.com)
+- jQuery Templates (http://api.jquery.com/category/plugins/templates)
+- KnockoutJS (http://knockoutjs.com)
