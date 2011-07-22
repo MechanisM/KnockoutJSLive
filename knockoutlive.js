@@ -8,12 +8,17 @@ if(typeof now != "undefined") {
 				viewModel[i] = model[i];
 			}	
 		}
-	}
+	};
 
 	ko.save = function(model) {
 		var model = ko.toJS(model);
+		
+		if(typeof now.modelName != 'undefined') {
+			model._modelName = now.modelName;
+		}
+		
 		now.saveViewModel(model);
-	}
+	};
 } else {
 	console.log("Could not find the NowJS scope, please make sure knockoutserver.js is running");
 }
