@@ -1,20 +1,12 @@
-                        _               _    __  __         __ _           
-  /\ /\_ __   ___   ___| | _____  _   _| |_  \ \/ _\       / /(_)_   _____ 
- / //_/ '_ \ / _ \ / __| |/ / _ \| | | | __|  \ \ \ _____ / / | \ \ / / _ \
-/ __ \| | | | (_) | (__|   < (_) | |_| | |_/\_/ /\ \_____/ /__| |\ V /  __/
-\/  \/|_| |_|\___/ \___|_|\_\___/ \__,_|\__\___/\__/     \____/_| \_/ \___|
-                                                                           
-
-
-# v0.2
+# KnockoutJS-Live v0.2
 
 ## KnockoutJSlive allows you to sync a KnockoutJS viewModel with other clients viewModel in realtime. 
 
 # Features :
 
 - Keep the same state in your UI across clients representing server data
-- Allows you to tag a certain page's viewModel with an ID, which in return assures that only viewModels that share the same idea can update that viewMode across clients
-- Removes the need of your viewModel variable to be named "viewModel"
+- Allows you to tag a certain page's viewModel with an ID, which in return assures that only viewModels that share the same ID can update that viewModel across clients
+- Removes the need that KnockoutJS introduces of having to initiliaze your model with a "var viewModel" variable
 
 ## How to use :
 
@@ -26,7 +18,7 @@ var myModel = ko.liveModel({
 
 myModel.fullName = ko.dependentObservable(function() {
 	return this.firstName() + " " + this.lastName();
-}, xModel);
+}, myModel);
 
 now.modelName = "profilePage";
 
