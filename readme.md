@@ -1,10 +1,4 @@
-                                                                      
-|   /               |              |        |,---.   |    o           
-|__/ ,---.,---.,---.|__/ ,---..   .|---     |`---.   |    ..    ,,---.
-|  \ |   ||   ||    |  \ |   ||   ||        |    |---|    | \  / |---'
-`   ``   '`---'`---'`   ``---'`---'`---'`---'`---'   `---'`  `'  `---'
-
-# v0.2
+# KnockoutJS-Live v0.2
 
 ## KnockoutJSlive allows you to sync a KnockoutJS viewModel with other clients viewModel in realtime. 
 
