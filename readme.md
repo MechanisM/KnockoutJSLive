@@ -5,8 +5,8 @@
 # Features :
 
 - Keep the same state in your UI across clients representing server data
-- Allows you to tag a certain page's viewModel with an ID, which in return assures that only viewModels that share the same idea can update that viewMode across clients
-- Removes the need of your viewModel variable to be named "viewModel"
+- Allows you to tag a certain page's viewModel with an ID, which in return assures that only viewModels that share the same ID can update that viewModel across clients
+- Removes the need that KnockoutJS introduces of having to initiliaze your model with a "var viewModel" variable
 
 ## How to use :
 
