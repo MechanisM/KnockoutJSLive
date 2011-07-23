@@ -18,7 +18,7 @@ var myModel = ko.liveModel({
 
 myModel.fullName = ko.dependentObservable(function() {
 	return this.firstName() + " " + this.lastName();
-}, xModel);
+}, myModel);
 
 now.modelName = "profilePage";
 
