@@ -1,22 +1,41 @@
-KnockoutJSlive v0.1.5
+                        _               _    __  __         __ _           
+  /\ /\_ __   ___   ___| | _____  _   _| |_  \ \/ _\       / /(_)_   _____ 
+ / //_/ '_ \ / _ \ / __| |/ / _ \| | | | __|  \ \ \ _____ / / | \ \ / / _ \
+/ __ \| | | | (_) | (__|   < (_) | |_| | |_/\_/ /\ \_____/ /__| |\ V /  __/
+\/  \/|_| |_|\___/ \___|_|\_\___/ \__,_|\__\___/\__/     \____/_| \_/ \___|
+                                                                           
 
-KnockoutJSlive allows you to sync a KnockoutJS viewModel with other clients. For example:
 
-User A - Is editing Report X
-User B - Is looking at Repot X 
+# v0.2
 
-User A - Saves Report X, and upon success, the ko.save(viewModel); function runs
-User B - Receives changes to Report X in realtime without refreshing the browser
+## KnockoutJSlive allows you to sync a KnockoutJS viewModel with other clients viewModel in realtime. 
 
-How to avoid updates across different viewModels with same property names:
+# Features :
 
-Simply include now.modelName = "something" in your javascript and KnockoutJSlive will only update corresponding models with the same name. If no now.modelName is included, it will attempt to update any viewModel it finds that contains the same properties.
+- Keep the same state in your UI across clients representing server data
+- Allows you to tag a certain page's viewModel with an ID, which in return assures that only viewModels that share the same idea can update that viewMode across clients
+- Removes the need of your viewModel variable to be named "viewModel"
 
-TODO:
+## How to use :
 
-- Make KnockoutJSlive detect the variable used for the viewModel, at the moment it expects it to be "var viewModel = {};"
+``` js
+var myModel = ko.liveModel({
+	firstName: ko.observable(),
+	lastName: ko.observable("Garcia")
+});
 
-Requirements
+myModel.fullName = ko.dependentObservable(function() {
+	return this.firstName() + " " + this.lastName();
+}, xModel);
+
+now.modelName = "profilePage";
+
+$(document).ready(function() {
+	ko.applyBindings(myModel);
+});
+```
+
+## Requirements
 
 - NodeJS v0.4.1 or greater (http://nodejs.org)
  - Express (http://express.com)

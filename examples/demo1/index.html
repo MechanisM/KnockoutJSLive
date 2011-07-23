@@ -9,14 +9,19 @@
 		<script type="text/javascript" src="../../knockoutlive.js"></script>
 	</head>
 	<script type="text/javascript">
-		var viewModel = {
-			firstName: ko.observable()
-		};
+		var xModel = ko.liveModel({
+			firstName: ko.observable(),
+			lastName: ko.observable("Garcia")
+		});
+		
+		xModel.fullName = ko.dependentObservable(function() {
+			return this.firstName() + " " + this.lastName();
+		}, xModel);
 		
 		now.modelName = "index";
 		
 		$(document).ready(function() {
-			ko.applyBindings(viewModel);
+			ko.applyBindings(xModel);
 		});
 	</script>
 	<body>
@@ -25,6 +30,6 @@
 		
 		<br /><br />
 		
-		<span data-bind="text: firstName"></span>
+		<span data-bind="text: fullName"></span>
 	</body>
 </html>
