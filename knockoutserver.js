@@ -16,8 +16,7 @@ everyone.now.saveViewModel = function(viewModel) {
 
 everyone.now.filterUpdate = function(viewModel, targetModelName) {
 	
-	if(targetModelName.length < 1)
-		if(typeof this.now.modelName == "undefined")
+	if(targetModelName.length < 1 && typeof this.now.modelName == "undefined")
 			this.now.updateViewModel(viewModel, viewModel._overwrite);
 	
 	if(targetModelName == this.now.modelName)
