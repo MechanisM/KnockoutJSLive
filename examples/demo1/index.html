@@ -10,7 +10,7 @@
 	</head>
 	<script type="text/javascript">
 		var xModel = ko.liveModel({
-			firstName: ko.observable(),
+			firstName: ko.observable(""),
 			lastName: ko.observable("Garcia")
 		});
 		
@@ -26,10 +26,15 @@
 	</script>
 	<body>
 		
-		First Name: <input type="text" data-bind="value: firstName"> <button data-bind="click: function() { ko.save(viewModel); }">Save</button>
+		First Name: <input type="text" data-bind="value: firstName"> <br />
+		Last Name: <input type="text" data-bind="value: lastName"> <br />
+		
+		<button data-bind="click: function() { ko.save(); }">Save</button>
 		
 		<br /><br />
 		
+		<span data-bind="text: firstName"></span><br />
+		<span data-bind="text: lastName"></span><br />
 		<span data-bind="text: fullName"></span>
 	</body>
 </html>

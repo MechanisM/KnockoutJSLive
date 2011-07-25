@@ -1,36 +1,38 @@
-# KnockoutJS-Live v0.2
+# KnockoutLive v0.2.5
 
-## KnockoutJSlive allows you to sync a KnockoutJS viewModel with other clients viewModel in realtime. 
+## KnockoutLive allows you to sync a KnockoutJS viewModel with other Clients in realtime. 
 
-# Features :
+## CHANGELOG :
 
-- Keep the same state in your UI across clients representing server data
-- Allows you to tag a certain page's viewModel with an ID, which in return assures that only viewModels that share the same ID can update that viewModel across clients
-- Removes the need that KnockoutJS introduces of having to initiliaze your model with a "var viewModel" variable
-
-## How to use :
-
+- v0.2.5
+	- Removed dependency on ExpressJS, which is no longer needed for KnockoutLive to function
+	- ko.save(options) now accepts an options parameter
+	- KnockoutLive now has three different configurations. Will write guide for it soon.
+	
+## Chatroom with KnockoutLive
 ``` js
-var myModel = ko.liveModel({
-	firstName: ko.observable(),
-	lastName: ko.observable("Garcia")
+var chatRoom = ko.liveModel({
+	messages: ko.observableArray([]),
+	send: function() {
+		chatRoom.messages.push({
+			text: this.text()
+		});
+		ko.save({ 
+			overwrite: true, 
+			ignore: ["text"]
+		});
+	},
+	text: ko.observable()
 });
-
-myModel.fullName = ko.dependentObservable(function() {
-	return this.firstName() + " " + this.lastName();
-}, myModel);
-
-now.modelName = "profilePage";
-
+now.modelName = "room1";
 $(document).ready(function() {
-	ko.applyBindings(myModel);
+	ko.applyBindings(chatRoom);
 });
 ```
 
 ## Requirements
 
 - NodeJS v0.4.1 or greater (http://nodejs.org)
- - Express (http://express.com)
   - NowjS (http://nowjs.com)
 - jQuery (http://jquery.com)
 - jQuery Templates (http://api.jquery.com/category/plugins/templates)

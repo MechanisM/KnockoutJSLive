@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Chat Room Example</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+		<script type="text/javascript" src="http://cloud.github.com/downloads/SteveSanderson/knockout/knockout-1.2.1.js"></script>
+		
+		<script type="text/javascript" src="http://localhost:3000/nowjs/now.js"></script>
+		<script type="text/javascript" src="../../knockoutlive.min.js"></script>
+	</head>
+	<script type="text/javascript">
+		var chatRoom = ko.liveModel({
+			messages: ko.observableArray([]),
+			send: function() {
+				chatRoom.messages.push({text: this.text()});
+				ko.save({ overwrite: true, ignore: ["text"]});
+			},
+			text: ko.observable()
+		});
+		now.modelName = "room1";
+		$(document).ready(function() {
+			ko.applyBindings(chatRoom);
+		});
+	</script>
+	<body>
+		<script type="text/html" id="msgTemplate">
+			{{each(i, msg) $data }}
+				<li>${msg.text}</li>
+			{{/each}}
+		</script>
+		
+		<ul data-bind='template: { name: "msgTemplate", data: messages }'>
+		</ul>
+		
+		<br /><br />
+		
+		<input type="text" id="msg" data-bind="value: text" /> <button id="send" data-bind="click: send">Send</button>
+		
+	</body>
+</html>
