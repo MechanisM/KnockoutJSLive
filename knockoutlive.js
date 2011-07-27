@@ -37,7 +37,7 @@ if(typeof now != "undefined") {
 				// Loop through the incoming module
 				// And check if the property is in the exclude list and the property is not a special one set with a leading _
 				for(i in model) {
-					if(exclude.indexOf(i) == "-1" && i.indexOf("_") == "-1") {
+					if(exclude.indexOf(i) == -1 && i.indexOf("_") == -1) {
 						ko.setPropMethod(i, model);
 					}
 				}

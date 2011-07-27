@@ -1,13 +1,12 @@
-# KnockoutLive v0.2.5
+# KnockoutLive v0.3
 
 ## KnockoutLive allows you to sync a KnockoutJS viewModel with other Clients in realtime. 
 
 ## CHANGELOG :
 
-- v0.2.5
-	- Removed dependency on ExpressJS, which is no longer needed for KnockoutLive to function
-	- ko.save(options) now accepts an options parameter
-	- KnockoutLive now has three different configurations. Will write guide for it soon.
+- v0.3
+	- KnockoutLive now renders the necessary javascript from the Node server, comes packaged with the latest jQuery, jQuery Templates and KnockoutJS, file is cached after first load
+	- Library sent for approval to be an npm install, until then knockoutserver.js uses node-knockoutlive.js as the NPM library
 	
 ## Chatroom with KnockoutLive
 ``` js
@@ -35,5 +34,7 @@ $(document).ready(function() {
 - NodeJS v0.4.1 or greater (http://nodejs.org)
   - NowjS (http://nowjs.com)
 - jQuery (http://jquery.com)
-- jQuery Templates (http://api.jquery.com/category/plugins/templates)
+  - jQuery Templates (http://api.jquery.com/category/plugins/templates)
 - KnockoutJS (http://knockoutjs.com)
+
+** KnockoutLive comes compiled with jQuery, jQuery Template, and KnockoutJS **

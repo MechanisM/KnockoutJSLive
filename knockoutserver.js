@@ -1,27 +1,9 @@
-var server = require('http').createServer(function(req, res){
-  	res.end("KnockoutLive Server v0.2.5");
+var http = require('http');
+var server = http.createServer(function(req, res){
+  	ko.processRequest(req, res, http);
 });
-
 var nowjs = require("now");
 	everyone = nowjs.initialize(server);
-	
-everyone.now.saveViewModel = function(viewModel) {
-	
-	if(typeof this.now.modelName == "undefined")
-		everyone.now.updateViewModel(viewModel, "");
-	else if(this.now.modelName == viewModel._modelName)
-		everyone.now.filterUpdate(viewModel, this.now.modelName);
-		
-}
-
-everyone.now.filterUpdate = function(viewModel, targetModelName) {
-	
-	if(targetModelName.length < 1 && typeof this.now.modelName == "undefined")
-			this.now.updateViewModel(viewModel, viewModel._overwrite);
-	
-	if(targetModelName == this.now.modelName)
-		this.now.updateViewModel(viewModel, viewModel._overwrite);
-		
-}
+	ko = require("./node-knockoutlive");
 
 server.listen(3000);
