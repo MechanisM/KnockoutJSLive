@@ -10,28 +10,7 @@
 
 - v0.3
 	- KnockoutLive now renders the necessary javascript from the Node server, comes packaged with the latest jQuery, jQuery Templates and KnockoutJS, file is cached after first load
-	- Library is one step closer before I release as an npm install, until then knockoutserver.js uses node-knockoutlive.js as the NPM library
-	
-## Chatroom with KnockoutLive
-``` js
-var chatRoom = ko.liveModel({
-	messages: ko.observableArray([]),
-	send: function() {
-		chatRoom.messages.push({
-			text: this.text()
-		});
-		ko.save({ 
-			overwrite: true, 
-			ignore: ["text"]
-		});
-	},
-	text: ko.observable()
-});
-now.modelName = "room1";
-$(document).ready(function() {
-	ko.applyBindings(chatRoom);
-});
-```
+	- Library is one step closer before I release it as an npm install, until then knockoutserver.js uses node-knockoutlive.js as the NPM library
 
 ## Requirements
 
