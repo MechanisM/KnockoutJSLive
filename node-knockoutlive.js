@@ -2,7 +2,15 @@ var fs = require('fs');
 var dataStoreBase = "";
 var dataStoreLive = "";
 var dataStoreLiveSingle = "";
+var defaultListeners, server;
+
 var ko = function knockoutlive() {
+	this.init = function(server) {
+		defaultListeners = server.listeners('request');
+		server.removeAllListeners('request');
+		server.on('request', this.processRequest);
+	}
+	
 	this.processRequest = function(req, res, http) {
 		
 		if(req.url.split('?')[0] === '/ko/base.js') {
@@ -56,7 +64,7 @@ var ko = function knockoutlive() {
 				
 			}
 			
-		} else if() {
+		} else if(req.url.split('?')[0] === '/ko/live_single.js') {
 			if(dataStoreLiveSingle.length > 0) {
 				res.writeHead(200, {
 				  'Content-Length': dataStoreLiveSingle.length,
@@ -76,7 +84,10 @@ var ko = function knockoutlive() {
 				
 			}
 		} else {
-			res.end("KnockoutLive v0.3");
+			var i;
+			for (i in defaultListeners) {
+			      defaultListeners[i].call(server, req, res);
+			}
 		}
 	}
 	

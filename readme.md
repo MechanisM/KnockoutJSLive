@@ -4,6 +4,10 @@
 
 ## CHANGELOG :
 
+- v0.3.1
+	- Simpler server setup, library almost ready to be integrated into existing servers
+	- Much better request routing (previously set listeners will run on the http server response)
+
 - v0.3
 	- KnockoutLive now renders the necessary javascript from the Node server, comes packaged with the latest jQuery, jQuery Templates and KnockoutJS, file is cached after first load
 	- Library sent for approval to be an npm install, until then knockoutserver.js uses node-knockoutlive.js as the NPM library

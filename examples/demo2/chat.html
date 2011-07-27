@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Chat Room Example</title>		
@@ -20,16 +21,16 @@
 		});
 	</script>
 	<body>
+		
 		<script type="text/html" id="msgTemplate">
 			{{each(i, msg) $data }}
 				<li>${msg.text}</li>
 			{{/each}}
 		</script>
 		
-		<ul data-bind='template: { name: "msgTemplate", data: messages }'>
-		</ul>
+		<ul data-bind='template: { name: "msgTemplate", data: messages }'></ul>
 		
-		<br /><br />
+		<br />
 		
 		<input type="text" id="msg" data-bind="value: text" /> <button id="send" data-bind="click: send">Send</button>
 		
