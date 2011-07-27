@@ -1,4 +1,4 @@
-# KnockoutLive v0.3
+# KnockoutLive v0.3.1
 
 ## KnockoutLive allows you to sync a KnockoutJS viewModel with other Clients in realtime. 
 
